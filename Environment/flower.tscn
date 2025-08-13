@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://br6gth5wahpv"]
+
+[ext_resource type="PackedScene" uid="uid://dfssow8mvre4x" path="res://Environment/flower.glb" id="1_p547k"]
+
+[node name="flower" instance=ExtResource("1_p547k")]
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(0.148642, 0, 0, 0, 0, -0.148642, 0, 0.148642, 0, 0, 0, 0)

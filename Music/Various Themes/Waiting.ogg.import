@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://41ft7sx5kr33"
+path="res://.godot/imported/Waiting.ogg-2a03407ff2b87af9f36fbbcfc4129972.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Various Themes/Waiting.ogg"
+dest_files=["res://.godot/imported/Waiting.ogg-2a03407ff2b87af9f36fbbcfc4129972.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

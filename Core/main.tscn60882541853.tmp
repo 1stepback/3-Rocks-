@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6k8tsebyp12s"]
+
+[ext_resource type="Script" uid="uid://bxiqi7lqfjxl5" path="res://Core/main.gd" id="1_cj3ed"]
+[ext_resource type="PackedScene" uid="uid://cr1j36fdhjh0h" path="res://Player/Player.tscn" id="2_5yh6k"]
+[ext_resource type="PackedScene" uid="uid://n47n2p6wyv4o" path="res://Environment/4_Rocks.glb" id="3_cj3ed"]
+[ext_resource type="PackedScene" uid="uid://crw16fexnkpey" path="res://Core/camera_controller.tscn" id="3_n0dd3"]
+[ext_resource type="Texture2D" uid="uid://bijbxvmdtnu3t" path="res://icon.svg" id="5_avlqc"]
+[ext_resource type="Script" uid="uid://dyd5evlxxym6b" path="res://Core/story_object.gd" id="5_xdvn6"]
+[ext_resource type="Script" uid="uid://b2avnfj6rehvy" path="res://Core/story_test.gd" id="6_84tve"]
+[ext_resource type="Script" uid="uid://drprp2haicnty" path="res://Core/StoryArea.gd" id="8_c1vl6"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_n0dd3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cj3ed"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_avlqc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84tve"]
+size = Vector3(2.6456, 1.70654, 3.0753)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okbgg"]
+bg_color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_cj3ed")
+
+[node name="Character" parent="." instance=ExtResource("2_5yh6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.172, -28.6209)
+floor_max_angle = 0.959931
+
+[node name="CameraController" parent="." instance=ExtResource("3_n0dd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128748, 1.1299, -0.00345445)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.943263, -0.143922, -0.299235, 0.0908613, -0.75491, 0.649504, -0.319373, -0.639842, -0.699001, 0, 0, 0)
+shadow_enabled = true
+
+[node name="North_arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.506738, -5.47554)
+mesh = SubResource("PrismMesh_n0dd3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="North_arrow"]
+transform = Transform3D(0.227847, 0, 0, 0, 1.52386, 8.88178e-16, 0, 0, 0.227847, 0, -2, -5.96046e-08)
+mesh = SubResource("CylinderMesh_cj3ed")
+
+[node name="Env" parent="." instance=ExtResource("3_cj3ed")]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+
+[node name="NPCtest" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.6929, -25.9021)
+mesh = SubResource("BoxMesh_avlqc")
+script = ExtResource("6_84tve")
+
+[node name="StoryObject" type="Node" parent="NPCtest"]
+script = ExtResource("5_xdvn6")
+
+[node name="Interactable" type="Node" parent="NPCtest"]
+
+[node name="Area3D" type="Area3D" parent="NPCtest"]
+script = ExtResource("8_c1vl6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCtest/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0610199, 0.353271, -0.175682)
+shape = SubResource("BoxShape3D_84tve")
+
+[node name="Dialogue" type="Panel" parent="NPCtest"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.0145833
+anchor_top = 0.7
+anchor_right = 0.970833
+anchor_bottom = 0.962963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_okbgg")
+metadata/_edit_use_anchors_ = true
+
+[node name="text" type="Label" parent="NPCtest/Dialogue"]
+z_index = 1
+layout_mode = 2
+offset_top = 10.0
+offset_right = 317.0
+offset_bottom = 60.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "This is placeholder dialogue... Testing testing 123. Poopity scoop da whoop. I didn't have a poo today but I will tomorrow"
+autowrap_mode = 2
+
+[node name="char_icon" type="TextureRect" parent="NPCtest/Dialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -130.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+texture = ExtResource("5_avlqc")
+expand_mode = 3
+stretch_mode = 3
+
+[connection signal="focus_entered" from="GUI" to="." method="_on_GUI_focus_entered"]
+[connection signal="body_entered" from="NPCtest/Area3D" to="NPCtest" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="NPCtest/Area3D" to="NPCtest" method="_on_area_3d_body_exited"]

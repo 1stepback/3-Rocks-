@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bf031g3b8m0or"
+path="res://.godot/imported/How Did We Do.ogg-9257b9a3680cb5b866479ad17ca094c2.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Various Themes/How Did We Do.ogg"
+dest_files=["res://.godot/imported/How Did We Do.ogg-9257b9a3680cb5b866479ad17ca094c2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cylqplve7q4db"]
+
+[node name="NormalViewer" type="RayCast3D"]

@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://doxyijyiddiln"
+path="res://.godot/imported/3Dcharacter2_Ch39_1001_Specular.png-c5650cb2f0d64edeba433e3643ba7f96.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "96c9459710750e2660fce6daead9d02b"
+}
+
+[deps]
+
+source_file="res://Player/Blender export/Textures/3Dcharacter2_Ch39_1001_Specular.png"
+dest_files=["res://.godot/imported/3Dcharacter2_Ch39_1001_Specular.png-c5650cb2f0d64edeba433e3643ba7f96.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

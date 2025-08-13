@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://f0fgbi8uss67"
+path="res://.godot/imported/Hall of the King.ogg-f0cb98ace5f4c9c59d577c0bc7389e3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Various Themes/Hall of the King.ogg"
+dest_files=["res://.godot/imported/Hall of the King.ogg-f0cb98ace5f4c9c59d577c0bc7389e3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
