@@ -1,0 +1,222 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjkwcqt2kqqep"]
+
+[ext_resource type="Script" uid="uid://d0bkkt6byre8" path="res://GUI/GUI_manager.gd" id="1_v2row"]
+[ext_resource type="Script" uid="uid://drb1rx3cocjc1" path="res://Story/dialogue.gd" id="2_qxx8f"]
+[ext_resource type="Texture2D" uid="uid://bijbxvmdtnu3t" path="res://icon.svg" id="3_qbcbk"]
+[ext_resource type="Theme" uid="uid://t00jlco5pr86" path="res://GUI/main_settings.tres" id="4_qbcbk"]
+[ext_resource type="PackedScene" uid="uid://u1jord2rj5c6" path="res://GUI/stat.tscn" id="5_hnh7v"]
+[ext_resource type="Script" uid="uid://eag7tgilwshm" path="res://GUI/FPS_counter.gd" id="6_hnh7v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okbgg"]
+bg_color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+script = ExtResource("1_v2row")
+
+[node name="in_game" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Stat2" parent="in_game" instance=ExtResource("5_hnh7v")]
+offset_left = 1814.0
+offset_top = 51.0
+offset_right = 1814.0
+offset_bottom = 51.0
+
+[node name="Dialogue" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1892.0
+offset_top = -324.0
+offset_right = -56.0006
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_okbgg")
+script = ExtResource("2_qxx8f")
+metadata/_edit_use_anchors_ = true
+
+[node name="text" type="Label" parent="Dialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1759.0
+offset_top = -182.0
+offset_right = -375.835
+offset_bottom = -101.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "This is placeholder dialogue... Testing testing 123. Poopity scoop da whoop. I didn't have a poo today but I will tomorrow"
+autowrap_mode = 2
+
+[node name="char_icon" type="TextureRect" parent="Dialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.999
+offset_top = -321.0
+offset_right = -37.9994
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+texture = ExtResource("3_qbcbk")
+
+[node name="GameMessage" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1892.0
+offset_top = -324.0
+offset_right = -56.0006
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_okbgg")
+script = ExtResource("2_qxx8f")
+metadata/_edit_use_anchors_ = true
+
+[node name="text" type="Label" parent="GameMessage"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -691.582
+offset_top = -40.5
+offset_right = 691.582
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "This is placeholder dialogue... Testing testing 123. Poopity scoop da whoop. I didn't have a poo today but I will tomorrow"
+autowrap_mode = 2
+
+[node name="char_icon" type="TextureRect" parent="GameMessage"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.999
+offset_top = -321.0
+offset_right = -37.9994
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+texture = ExtResource("3_qbcbk")
+
+[node name="Menu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_options" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 479.0
+offset_right = 535.0
+offset_bottom = 646.0
+
+[node name="Button" type="Button" parent="Menu/main_options"]
+layout_mode = 2
+theme = ExtResource("4_qbcbk")
+text = "Settings"
+
+[node name="Button2" type="Button" parent="Menu/main_options"]
+layout_mode = 2
+theme = ExtResource("4_qbcbk")
+text = "Save"
+
+[node name="Button3" type="Button" parent="Menu/main_options"]
+layout_mode = 2
+theme = ExtResource("4_qbcbk")
+text = "Exit"
+
+[node name="Panel" type="Panel" parent="Menu"]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 164.0
+offset_right = 1607.0
+offset_bottom = 921.0
+
+[node name="Label" type="Label" parent="Menu/Panel"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 29.0
+offset_right = 374.0
+offset_bottom = 52.0
+text = "Collectables"
+
+[node name="Stats" type="HBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 119.0
+offset_right = 874.0
+offset_bottom = 220.0
+
+[node name="Stat" parent="Menu/Stats" instance=ExtResource("5_hnh7v")]
+layout_mode = 2
+
+[node name="Stat2" parent="Menu/Stats" instance=ExtResource("5_hnh7v")]
+layout_mode = 2
+
+[node name="Stat3" parent="Menu/Stats" instance=ExtResource("5_hnh7v")]
+layout_mode = 2
+
+[node name="Debug" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Debug"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 26.0
+offset_right = 110.0
+offset_bottom = 70.0
+theme = ExtResource("4_qbcbk")
+text = "FPS: 60"
+script = ExtResource("6_hnh7v")
+
+[editable path="Menu/Stats/Stat"]

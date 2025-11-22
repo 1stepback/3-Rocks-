@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyuisfr5jw2qm"]
+
+[ext_resource type="Script" uid="uid://deisfto52chi0" path="res://Core/meshClimeable.gd" id="4_m0j44"]
+
+[node name="climeable_Mesh" type="MeshInstance3D"]
+transform = Transform3D(0.930187, 0, 0.367085, 0, 1, 0, -0.367085, 0, 0.930187, 0, 0, 0)
+skeleton = NodePath("")
+script = ExtResource("4_m0j44")
+
+[node name="WallBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBody"]
+
+[node name="FloorBody" type="StaticBody3D" parent="." groups=["climeable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorBody"]

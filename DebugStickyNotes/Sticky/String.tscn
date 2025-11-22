@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck33q8qnepkco"]
+
+[ext_resource type="Script" uid="uid://boyr7l3i8h658" path="res://Notes/Sticky/string.gd" id="1_x7dvd"]
+
+[node name="String" type="Line2D"]
+points = PackedVector2Array(0, 0, 187, 8)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+script = ExtResource("1_x7dvd")

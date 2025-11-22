@@ -1,5 +1,8 @@
 extends Node
 
+
+var lines 
+
 # put in inherited class? 
 func check_ingredients(player_ingredients):
 	for ingredient in active_ingredients:
@@ -19,7 +22,7 @@ var restricted_ingredients = {
 	"conquered grandline": on_conquered_grand_line
 }
 ########################################################################
-var lines 
+
 
 func beginner_tutorial():
 	var temp = load("res://Story/dialogue_test.gd").new()
@@ -28,9 +31,9 @@ func beginner_tutorial():
 	%Dialogue.lines = temp.lines
 
 
+############################################################
 func on_conquered_grand_line():
 	print("conquered GRANDLINE")
-	
 	
 func defeated_boss1():
 	print("Defeated boss1")

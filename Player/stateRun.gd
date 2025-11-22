@@ -3,15 +3,15 @@ extends State
 
 
 
-func enter_state():
+func enter_protocol():
 	player.AnimTreePlayback.travel("Run")
 
 
 
 func physics_process(delta): 
 	# check inputs
-	player.jump_check()
-	player.falling_check()
+	if not player.jump_check():
+		player.falling_check()
 
 	
 	var input_vector = player.gather_inputs()

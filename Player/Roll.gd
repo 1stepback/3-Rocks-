@@ -2,10 +2,11 @@ extends State
 
 
 
-func enter_state():
+func enter_protocol():
 	player.AnimTreePlayback.travel("Roll")
 
 func physics_process(delta):
+
 	var currentRotation = player.transform.basis.get_rotation_quaternion()
 	var root_motion =  player.get_node("AnimationTree").get_root_motion_position()
 	print(root_motion)
@@ -17,8 +18,9 @@ func physics_process(delta):
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Roll":
 		var p_input = player.gather_inputs()
-		
-		if p_input:
+		if player.jump_check():
+			pass
+		elif p_input:
 			player.get_node("StateMachine").change_state("Run")
 		else: 
 			player.get_node("StateMachine").change_state("Idle")

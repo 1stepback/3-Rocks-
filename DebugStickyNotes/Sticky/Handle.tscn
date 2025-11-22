@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpjiop6pctqc7"]
+
+[ext_resource type="Script" uid="uid://bd8o5h3rkp2t0" path="res://DebugStickyNotes/Sticky/handle.gd" id="1_0ddxd"]
+
+[node name="handle" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+script = ExtResource("1_0ddxd")
+side_idx = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 2.0
+editor_only = false
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="resized" from="." to="." method="_on_resized"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://u1jord2rj5c6"]
+
+[ext_resource type="Theme" uid="uid://t00jlco5pr86" path="res://GUI/main_settings.tres" id="1_qolmg"]
+[ext_resource type="Texture2D" uid="uid://bijbxvmdtnu3t" path="res://icon.svg" id="2_2diuo"]
+
+[node name="Stat" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 94.0
+offset_top = 85.0
+offset_right = 94.0
+offset_bottom = 85.0
+size_flags_horizontal = 3
+
+[node name="container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="container"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -21.0
+offset_right = -10.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_qolmg")
+text = "16"
+
+[node name="Sprite2D" type="Sprite2D" parent="container"]
+position = Vector2(32, 1)
+scale = Vector2(0.423828, 0.423828)
+texture = ExtResource("2_2diuo")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.1

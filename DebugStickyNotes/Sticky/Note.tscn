@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://ht0g6j3236uj"]
+
+[ext_resource type="Theme" uid="uid://bys7nvfn2cgsl" path="res://DebugStickyNotes/Sticky/StickyTheme.tres" id="1_mryjs"]
+[ext_resource type="Script" uid="uid://c7olgfrdw7c3v" path="res://DebugStickyNotes/Sticky/Note.gd" id="2_12e8p"]
+[ext_resource type="PackedScene" uid="uid://bpjiop6pctqc7" path="res://DebugStickyNotes/Sticky/Handle.tscn" id="2_cwsi6"]
+[ext_resource type="Script" uid="uid://dbj8027k257bm" path="res://DebugStickyNotes/Sticky/corner_handle.gd" id="3_b608c"]
+
+[node name="Note" type="Panel" groups=["Sticky"]]
+offset_left = 53.0
+offset_top = 51.0
+offset_right = 633.0
+offset_bottom = 531.0
+theme = ExtResource("1_mryjs")
+script = ExtResource("2_12e8p")
+metadata/_edit_use_anchors_ = true
+
+[node name="textMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="components" type="VBoxContainer" parent="textMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextEdit" type="TextEdit" parent="textMargin/components"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+text = "Sample debug: 
+
+Position      size    rotation"
+placeholder_text = "
+"
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="Handles" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="left" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 9
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 11.0
+offset_right = 10.0
+offset_bottom = -12.0
+grow_horizontal = 1
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+side_idx = 0
+
+[node name="top" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+offset_left = 10.0
+offset_top = -9.0
+offset_right = -12.0
+offset_bottom = 11.0
+mouse_default_cursor_shape = 9
+side_idx = 1
+
+[node name="right" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+side_idx = 2
+
+[node name="bottom" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -11.0
+offset_right = -14.0
+offset_bottom = 10.0
+grow_vertical = 0
+mouse_default_cursor_shape = 14
+
+[node name="corner_TL" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 1
+mouse_default_cursor_shape = 12
+script = ExtResource("3_b608c")
+corner_sides = PackedInt32Array(1, 0)
+
+[node name="corner_TR" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 8.0
+offset_bottom = 11.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+script = ExtResource("3_b608c")
+corner_sides = PackedInt32Array(1, 2)
+
+[node name="corner_BR" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+script = ExtResource("3_b608c")
+corner_sides = PackedInt32Array(2, 3)
+
+[node name="corner_BL" parent="Handles" instance=ExtResource("2_cwsi6")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 12.0
+offset_bottom = 10.0
+grow_horizontal = 1
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+script = ExtResource("3_b608c")
+corner_sides = PackedInt32Array(3, 0)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+
+[editable path="Handles/left"]

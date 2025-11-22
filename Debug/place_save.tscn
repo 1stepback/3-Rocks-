@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dakjw8yxp05wd"]
+
+[ext_resource type="Script" uid="uid://5wx66owsb114" path="res://Debug/place_save.gd" id="1_10ssx"]
+
+[sub_resource type="Gradient" id="Gradient_10ssx"]
+colors = PackedColorArray(0, 0.8245, 0.97, 1, 0.586944, 0.00134776, 0.745994, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wx57h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q54kg"]
+color_ramp = SubResource("Gradient_10ssx")
+noise = SubResource("FastNoiseLite_wx57h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q54kg"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+metallic = 1.0
+metallic_specular = 1.0
+emission_enabled = true
+emission_energy_multiplier = 2.01
+emission_texture = SubResource("NoiseTexture2D_q54kg")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j2778"]
+lightmap_size_hint = Vector2i(17, 19)
+material = SubResource("StandardMaterial3D_q54kg")
+top_radius = 0.4
+bottom_radius = 0.2
+height = 0.95
+rings = 5
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_digkn"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 0.424, 0.04, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_rxdl2"]
+material = SubResource("StandardMaterial3D_digkn")
+inner_radius = 0.24
+outer_radius = 0.31
+
+[node name="place_save" type="Node3D"]
+script = ExtResource("1_10ssx")
+
+[node name="Halo" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.731225, 0, -0.680906, 0, 1, 0, 0.680906, 0, -0.731225, 0, 0.741493, 0)
+mesh = SubResource("CylinderMesh_j2778")
+skeleton = NodePath("../Ring")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0529309, 0)
+mesh = SubResource("TorusMesh_rxdl2")
+skeleton = NodePath("../..")
