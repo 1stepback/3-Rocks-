@@ -147,7 +147,7 @@ func find_nearest_ledge(collider :StaticBody3D, coll_point: Vector3):
 	var closest_edge 
 	
 	# Edge information could be useful here for snapping
-	for edge in mesh.floor_outer_edges: # should be [ [vec3, vec3] ,  [vec3, vec3] .... 
+	for edge in mesh.sorted_Ledges: # should be [ [vec3, vec3] ,  [vec3, vec3] .... 
 		var edge_to_point_nearest = Geometry3D.get_closest_point_to_segment(coll_point, edge[0], edge[1])
 		var distance = (edge_to_point_nearest - global_position).length()
 		if distance < closest_distance:

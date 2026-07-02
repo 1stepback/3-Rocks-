@@ -9,9 +9,9 @@ void vertex() {
 }
 
 void fragment() {
-	
-	//vec3 Wn = normalize((MODEL_NORMAL_MATRIX * NORMAL));
 
+	//vec3 Wn = normalize((MODEL_NORMAL_MATRIX * NORMAL));
+	
 	vec3 Wn = (INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
 	//vec3 Wn = normalize(MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz;
 	//float alignment = dot(Wn, vec3(0.0, 1.0, 0.0));

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://1wwvc8yopjar"]
+
+[ext_resource type="PackedScene" uid="uid://bc4fislygd0h5" path="res://Throwaway/test_custom_properties.glb" id="1_fysp3"]
+[ext_resource type="Script" uid="uid://w8h412cjdbg8" path="res://Throwaway/custom_properties_test_object.gd" id="2_fysp3"]
+
+[node name="test_custom_properties" instance=ExtResource("1_fysp3")]
+script = ExtResource("2_fysp3")
